@@ -12,5 +12,6 @@ setup(
     description="Python Package to extract important insights from many conversations.",
     long_description=long_description,
     author="Bharatram Natarajan",
-    author_email="bharatram.natarjan@freshworks.com"
+    author_email="bharatram.natarjan@freshworks.com",
+    packages=find_packages()
 )
