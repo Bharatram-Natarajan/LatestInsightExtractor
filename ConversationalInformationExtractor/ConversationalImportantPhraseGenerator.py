@@ -1,6 +1,6 @@
-from CommonFunctions import create_custom_logger, time_wrapper
-from InformationCalculator import InformationCalculator
-from InformationExtractor import InformationExtractor
+from .CommonFunctions import create_custom_logger, time_wrapper
+from .InformationCalculator import InformationCalculator
+from .InformationExtractor import InformationExtractor
 
 
 class ConversationalImportantPhraseGenerator:
