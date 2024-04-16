@@ -1,5 +1,5 @@
 from collections import Counter
-from CommonFunctions import time_wrapper, create_custom_logger
+#from .CommonFunctions import time_wrapper, create_custom_logger
 
 
 class InformationCalculator:
