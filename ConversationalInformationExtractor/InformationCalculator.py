@@ -77,13 +77,14 @@ class InformationCalculator:
         self.local_logger.info("Probability generation starting for all phrases from conversations")
         self.local_logger.debug("Generating ngrams for the flattened list")
         ngram_list = self.count_ngrams(flattened_list, [1, 2])
+        unique_items_list = list(set(flattened_list))
         self.local_logger.debug("Generating probabilities for phrases through smoothing techniques")
         additive_theme_prob_list = self.generate_add_one_smoothing(ngram_list[0], ngram_list[1],
-                                                                   flattened_list)
+                                                                   unique_items_list)
         interpol_theme_prob_list = self.generate_backoff_and_interpolation(ngram_list[0], ngram_list[1],
-                                                                           flattened_list)
-        add_theme_score_list = list(zip(flattened_list, additive_theme_prob_list))
-        interpol_theme_score_list = list(zip(flattened_list, interpol_theme_prob_list))
+                                                                           unique_items_list)
+        add_theme_score_list = list(zip(unique_items_list, additive_theme_prob_list))
+        interpol_theme_score_list = list(zip(unique_items_list, interpol_theme_prob_list))
         sorted_add_theme_list = sorted(add_theme_score_list, key=lambda info: info[1], reverse=True)
         sorted_interpol_theme_list = sorted(interpol_theme_score_list, key=lambda info: info[1], reverse=True)
         self.local_logger.debug("Choosing important phrases based on probabilities")

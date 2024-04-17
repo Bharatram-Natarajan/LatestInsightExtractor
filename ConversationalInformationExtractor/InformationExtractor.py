@@ -8,9 +8,9 @@ from time import sleep
 
 class InformationExtractor:
     def __init__(self):
-        self.url = ""
-        self.platform_keys = ""
-        self.auth_keys = ""
+        self.url = "http://freddy-ai-platform-stage.freshedge.net/v1/ai-service/freshservice/azure/conversational_insights_generation"
+        self.platform_keys = "ffa6551a-5889-490f-bfc9-13ffe75916f8-1682081771072-admin-key"
+        self.auth_keys = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJmcmVzaHNlcnZpY2UiLCJpYXQiOjE2ODE4ODcyMDZ9.DMmEND9hnKLp9QSsjPW4k3FE0jDLopMJNDd0MEFooVE"
         self.local_logger = create_custom_logger(InformationExtractor.__name__)
 
     @time_wrapper
@@ -18,7 +18,7 @@ class InformationExtractor:
 
         payload = json.dumps(
             {
-                "Conversation": conversation
+                "conversation": conversation
             }
         )
         headers = {
