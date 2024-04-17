@@ -43,3 +43,4 @@ class InformationExtractor:
             res_list.append(phrase_list)
             sleep(1)
         return res_list
+
