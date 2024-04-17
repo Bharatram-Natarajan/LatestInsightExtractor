@@ -75,8 +75,8 @@ class InformationCalculator:
         for idx in range(0, max_cnt + 1):
             if idx not in unigram_fre_count:
                 unigram_fre_count[idx] = 1
-        print(bi_gram_fre_count)
-        print(unigram_fre_count)
+        #print(bi_gram_fre_count)
+        #print(unigram_fre_count)
         for inp in inp_list:
             phrase_list = inp.split(" ")
             final_prob = 1
@@ -110,7 +110,7 @@ class InformationCalculator:
         self.local_logger.debug("Generating ngrams for the flattened list")
         ngram_list = self.count_ngrams(flattened_list, [1, 2])
         unique_items_list = list(set(flattened_list))
-        self.local_logger.debug(f"Unique Items:{unique_items_list}")
+        #self.local_logger.debug(f"Unique Items:{unique_items_list}")
         self.local_logger.debug("Generating probabilities for phrases through smoothing techniques")
         interpol_theme_prob_list = self.generate_backoff_and_interpolation(ngram_list[0], ngram_list[1],
                                                                            unique_items_list)

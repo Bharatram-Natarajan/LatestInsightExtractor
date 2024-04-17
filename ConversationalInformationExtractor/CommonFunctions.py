@@ -17,7 +17,7 @@ def time_wrapper(local_func):
 
 def create_custom_logger(fn_name):
     local_logger = logging.getLogger(fn_name)
-    local_logger.setLevel(logging.DEBUG)
+    local_logger.setLevel(logging.INFO)
     if not local_logger.hasHandlers():
         console_handler = logging.StreamHandler()
         console_handler.setLevel(logging.DEBUG)
