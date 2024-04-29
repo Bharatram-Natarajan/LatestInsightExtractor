@@ -11,7 +11,7 @@ with open('requirements.txt') as f:
 
 setup(
     name="ConversationalInformationExtractor",
-    version="1.0.0",
+    version="1.0.1",
     description="Python Package to extract important insights from many conversations.",
     long_description=long_description,
     author="Bharatram Natarajan",
