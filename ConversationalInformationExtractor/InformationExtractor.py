@@ -44,17 +44,20 @@ class InformationExtractor:
     #        res_list.append(phrase_list)
     #        sleep(1)
     #    return res_list
+
     @time_wrapper
     def extract_information_from_all_conversations(self, conversation_list: list):
         ind_res_list, combined_res_list = [], []
         for ind_conversation in conversation_list:
             insight_results = self.extract_information_from_each_conversation(ind_conversation)
             final_res = json.loads(insight_results)["content"]
-            insights_results_dict = json.loads(final_res[final_res.find("{"): final_res.rfind("}") + 1])
-            print(insights_results_dict)
-            print(type(insights_results_dict))
-            phrase_list = insights_results_dict["important_topics"] + insights_results_dict["important_themes"] + \
-                insights_results_dict["important_sub-themes"] + insights_results_dict["main_entities"]
+            try:
+                insights_results_dict = json.loads(final_res[final_res.find("{"): final_res.rfind("}") + 1])
+                phrase_list = insights_results_dict["important_topics"] + insights_results_dict["important_themes"] + \
+                    insights_results_dict["important_sub-themes"] + insights_results_dict["main_entities"]
+            except:
+                phrase_list = []
+                insights_results_dict = final_res
             combined_res_list.append(phrase_list)
             ind_res_list.append(insights_results_dict)
             sleep(1)
