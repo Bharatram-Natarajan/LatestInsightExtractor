@@ -6,7 +6,7 @@ class InformationCalculator:
     def __init__(self):
         self.local_logger = create_custom_logger(InformationCalculator.__name__)
         self.interpolation_smooth_threshold = 0.0001
-        self.turing_smooth_threshold = 0.5
+        self.turing_smooth_threshold = 0.05
         self.top_k = 10
 
     @time_wrapper
