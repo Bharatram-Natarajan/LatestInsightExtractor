@@ -54,7 +54,7 @@ class InformationExtractor:
             try:
                 insights_results_dict = json.loads(final_res[final_res.find("{"): final_res.rfind("}") + 1])
                 phrase_list = insights_results_dict["important_topics"] + insights_results_dict["important_themes"] + \
-                    insights_results_dict["important_sub-themes"] + insights_results_dict["main_entities"]
+                    insights_results_dict["important_sub-themes"]
             except:
                 phrase_list = []
                 insights_results_dict = final_res
