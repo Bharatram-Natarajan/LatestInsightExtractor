@@ -51,8 +51,8 @@ class InformationExtractor:
         ind_res_list, combined_res_list, combined_theme_sub_theme_list = [], [], []
         for ind_conversation in tqdm(conversation_list, desc='Conversation Progress'):
             insight_results = self.extract_information_from_each_conversation(ind_conversation)
-            final_res = json.loads(insight_results)["content"]
             try:
+		final_res = json.loads(insight_results)["content"]
                 insights_results_dict = json.loads(final_res[final_res.find("{"): final_res.rfind("}") + 1])
                 # print(insights_results_dict)
                 phrase_list = []
