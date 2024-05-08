@@ -20,5 +20,5 @@ class ConversationalImportantPhraseGenerator:
         trendy_theme_sub_theme_info = self.calculator.cluster_all_information(combined_theme_sub_theme_list)
         theme_info_list, clustered_sub_theme_count_dict, theme_sub_theme_count_list = trendy_theme_sub_theme_info
         self.local_logger.info(f"Final Theme Sub Theme information :{theme_sub_theme_count_list}")
-        return final_phrase_list, theme_sub_theme_count_list
+        return ind_insight_details, final_phrase_list, theme_sub_theme_count_list
 
