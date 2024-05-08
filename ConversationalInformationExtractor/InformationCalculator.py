@@ -7,7 +7,7 @@ class InformationCalculator:
         self.local_logger = create_custom_logger(InformationCalculator.__name__)
         self.add_one_smooth_threshold = 0.01
         self.interpolation_smooth_threshold = 0.0001
-        self.turing_smooth_threshold = 0.1
+        self.turing_smooth_threshold = 0.001
         self.top_k = 10
         self.sen_model = SentenceTransformer("all-mpnet-base-v2")
 
@@ -154,7 +154,7 @@ class InformationCalculator:
         imp_phrase_list = []
         # [imp_phrase_list.append(phrase_info[0]) for phrase_info in sorted_add_theme_list[:10]
         #  if phrase_info[1] >= self.add_one_smooth_threshold and phrase_info[0] not in imp_phrase_list]
-        [imp_phrase_list.append(phrase_info[0]) for phrase_info in sorted_interpol_theme_list[:10]
+        [imp_phrase_list.append(phrase_info[0]) for phrase_info in sorted_interpol_theme_list
          if phrase_info[1] >= self.interpolation_smooth_threshold and phrase_info[0] not in imp_phrase_list]
         [imp_phrase_list.append(phrase_info[0]) for phrase_info in sorted_turing_theme_list
          if phrase_info[1] >= self.turing_smooth_threshold and phrase_info[0] not in imp_phrase_list]
